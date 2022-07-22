@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
 			end
 		end
 		
-		if(forPilotOnly == true and PlayerData.job.name!=JobName) then
+		if(forPilotOnly == true and PlayerData.job.name~=JobName) then
 			Citizen.Wait(1000)
 		else
 			if isInJobPilot == false then
