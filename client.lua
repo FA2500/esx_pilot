@@ -4,6 +4,7 @@
 
 --Please Change the variable value according to your own
 
+local ESX = nil
 local forPilotOnly = false
 local JobName = "Pilot"
 local Airport = { x = -961.88, y = -2985.00, z = 13.00}
@@ -66,6 +67,13 @@ end
 -------------------------------------------
 ------------------CITIZENS-----------------
 -------------------------------------------
+
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(1)
+	end
+end)
 
 Citizen.CreateThread(function()
 	while true do
